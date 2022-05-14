@@ -4,52 +4,7 @@
 #include <cstring>
 using namespace std;
 
-bool isDigit(char c) {
-	return (c >= '0' && c <= '9');
-}
-bool User::usernameValidation(const char* username) {
-	int len = strlen(username);
-	if (len < 3) {
-		cout << "Too short.Username should be at least 3 symbols.";
-		return false;
-	}
-	for (int i = 0; i < len; i++)
-	{
-		if (isDigit(!username[i]) || !isAlphabet(username[i])) {
-			cout << "Invalid symbol!";
-			return false;
-		}
-	}
-	return true;
-}
-bool User::validEmail(const char* email) {
-	if (!isAlphabet(email[0])) //email can't start with digit
-		return false;
-	int len = strlen(email);
-	int aPos = -1; //@
-	int dotPos = -1; //.
-	for (int i = 0; i < len; ++i) {
-		if (email[i] == '@')
-			aPos = i;
-		if (email[i] == '.')
-			dotPos = i;
-	}
-	if (aPos == -1 || dotPos == -1) //email should include dot and @
-		return false;
-	if (dotPos >= len - 1) // dot can't be the last symbol 
-		return false;
-	if (aPos > dotPos) //dot should be after @
-		return false;
-	return true;
-}
-bool User::passwordValidation(const char* password) {
-	int len = strlen(password);
-	if (len < 6) {
-		cout << "Too short password!\n";
-		return false;
-	}
-	return true;
-}
+
 
 void User::copy(const char* username, const char* password, const char* email) {
 	this->username = new char[strlen(username) + 1];
@@ -69,23 +24,23 @@ void User::clear() {
 	delete[] email;
 	email = nullptr;
 }
-char* User::getUsername() {
+MyString User::getUsername() {
 	return username;
 }
-char* User::getPassword() {
+MyString User::getPassword() {
 	return password;
 }
-char* User::getEmail() {
+MyString User::getEmail() {
 	return email;
 }
-void User::setUsername(char* username) {
-	this->username = username;
+void User::setUsername(MyString username) {
+		this->username = username;
 }
-void User::setPassword(char* password) {
-	this->password = password;
+void User::setPassword(MyString password) {
+		this->password = password;
 }
 void User::setEmail(char* email) {
-	this->email = email;
+		this->email = email;
 }
 User::User() : username(nullptr), password(nullptr), email(nullptr) {}
 

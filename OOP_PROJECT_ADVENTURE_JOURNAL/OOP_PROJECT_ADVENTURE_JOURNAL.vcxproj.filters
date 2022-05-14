@@ -24,12 +24,24 @@
     <ClCompile Include="DataBaseValidation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Registration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DataBaseValidation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Registration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyString.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

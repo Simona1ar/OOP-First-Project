@@ -1,5 +1,5 @@
 #pragma once
-
+#include "MyString.h"
 #include <iostream>
 using namespace std;
 #include <cstring>
@@ -14,7 +14,11 @@ bool isValidDay(int day);
 bool isValidMonth(int month);
 bool isValidYear(int year);
 bool isValidGrade(const int grade);
-bool isValidDestination(const char* des);
-bool isValidPictureName(const char* picture);
+bool usernameValidation(const MyString username);
+bool isValidDestination(const MyString des);
+bool isValidPictureName(const MyString picture);
 bool dateValidation(int year, int month, int day);
-bool isValidDate(const char* date);
+bool isValidDate(const MyString date);
+bool validEmail(const MyString email);
+bool passwordValidation(const MyString password);
+

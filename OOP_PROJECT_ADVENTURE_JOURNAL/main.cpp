@@ -5,28 +5,27 @@ using namespace std;
 #include "User.h"
 
 int main() {
-	cout << "Choose option: " << endl;
-	cout << "Register" << endl;
-	cout << "Sign in" << endl;
-	ofstream writeMyFile;
-	ifstream readMyFile;
+	int endProgram = 0;
+	fstream iofile;
 
 
 	char options[50];
-	bool a = true;
-	do
-	{
+	
+	while (endProgram == 0) {
+		cout << "Choose option: " << endl;
+		cout << "Register" << endl;
+		cout << "Sign in" << endl;
 		cin >> options;
-		if (strcmp(options, "Register") == 0) {
-			cout << "\nCreate username: ";
-			cin.ignore();
+		if (strcmp(options, "Register")== 0)
+		{
+
 		}
 		else if (strcmp(options, "Sign in") == 0) {
-			a = false;
+
 		}
 		else {
-			cout << "Invalid option." << endl;
+			endProgram = 1;
 		}
-	} while (a);
+	}
 	return 0;
 }

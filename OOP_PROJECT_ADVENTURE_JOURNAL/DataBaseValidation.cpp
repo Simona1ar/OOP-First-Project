@@ -24,6 +24,48 @@ bool isValidGrade(const int grade) {
 	return (grade >= 1 && grade <= 5);
 }
 
+
+bool usernameValidation(const MyString username) {
+	int len = strlen(username);
+	if (len < 3) {
+		return false;
+	}
+	for (int i = 0; i < len; i++)
+	{
+		if (isDigit(!username[i]) || !isAlphabet(username[i])) {
+			return false;
+		}
+	}
+	return true;
+}
+bool validEmail(const char* email) {
+	if (!isAlphabet(email[0])) //email can't start with digit
+		return false;
+	int len = strlen(email);
+	int aPos = -1; //@
+	int dotPos = -1; //.
+	for (int i = 0; i < len; ++i) {
+		if (email[i] == '@')
+			aPos = i;
+		if (email[i] == '.')
+			dotPos = i;
+	}
+	if (aPos == -1 || dotPos == -1) //email should include dot and @
+		return false;
+	if (dotPos >= len - 1) // dot can't be the last symbol 
+		return false;
+	if (aPos > dotPos) //dot should be after @
+		return false;
+	return true;
+}
+bool passwordValidation(const char* password) {
+	int len = strlen(password);
+	if (len < 6) {
+		return false;
+	}
+	return true;
+}
+
 bool isValidDestination(const char* des) {
 	for (int i = 0; i < strlen(des); i++)
 	{
