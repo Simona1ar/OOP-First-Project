@@ -2,12 +2,11 @@
 #include <fstream>
 #include <cstring>
 using namespace std;
-#include "User.h"
+#include "Registration.h"
+#include "LogIn.h"
 
 int main() {
 	int endProgram = 0;
-	fstream iofile;
-
 
 	char options[50];
 	
@@ -18,10 +17,16 @@ int main() {
 		cin >> options;
 		if (strcmp(options, "Register")== 0)
 		{
-
+			regUsername();
+			if (getRecordTimes() == 3)
+				continue;
+			regPassword();
+			regEmail();
+			cout << "\nYou are successfully registered!";
+			closeFile();
 		}
 		else if (strcmp(options, "Sign in") == 0) {
-
+			logIn();
 		}
 		else {
 			endProgram = 1;

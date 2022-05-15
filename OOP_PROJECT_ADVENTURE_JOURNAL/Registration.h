@@ -3,13 +3,12 @@
 #include <fstream>
 #include "User.h"
 #include "MyString.h"
+#include "DataBaseValidation.h"
 using namespace std;
 
-User* users;
-MyString username;
-MyString password;
-MyString email;
-int recordsTimes = 0;
-
+int getRecordTimes();
+void closeFile();
 void checkUsername(MyString usern);
-void regUser();
+void regUsername();
+void regPassword();
+void regEmail();

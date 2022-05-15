@@ -1,6 +1,11 @@
 #include "MyString.h"
+MyString::MyString() : myStr{nullptr} {
+	myStr = new char[1];
+	myStr[0] = '\0';
+}
 
-MyString::MyString(const char* str) : myStr(new char[strlen(str) + 1]) {
+MyString::MyString(const char* str) {
+	myStr = new char[strlen(str) + 1];
 	strcpy_s(this->myStr, strlen(str) + 1, str);
 }
 
@@ -27,6 +32,21 @@ const char* MyString::getMyStr() const {
 	return this->myStr;
 }
 
+unsigned int MyString::size()const {
+	return strlen(myStr);
+}
+const char MyString::getSymbolAt(int pos) const {
+	for (int i = 0; i < strlen(myStr); i++)
+	{
+		if (i == pos) {
+			return myStr[i];
+		}
+	}
+}
+bool MyString::cmpStrWithCharArray(const char* str)
+{
+	return (strcmp(str, myStr));
+}
 MyString& operator+(MyString& const lhs, MyString& const rhs) {
 	return (lhs + rhs);
 }
@@ -47,3 +67,4 @@ istream& operator>>(istream& in, MyString& obj) {
 
 	return in;
 }
+

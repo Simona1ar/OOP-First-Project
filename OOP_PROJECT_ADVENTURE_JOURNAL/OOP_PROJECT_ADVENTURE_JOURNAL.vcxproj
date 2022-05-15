@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DataBaseValidation.cpp" />
+    <ClCompile Include="LogIn.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="Registration.cpp" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataBaseValidation.h" />
+    <ClInclude Include="LogIn.h" />
     <ClInclude Include="MyString.h" />
     <ClInclude Include="Registration.h" />
     <ClInclude Include="User.h" />

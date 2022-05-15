@@ -26,28 +26,28 @@ bool isValidGrade(const int grade) {
 
 
 bool usernameValidation(const MyString username) {
-	int len = strlen(username);
-	if (len < 3) {
+	int len = username.size();
+	if (len < 3 && len > 32) {
 		return false;
 	}
 	for (int i = 0; i < len; i++)
 	{
-		if (isDigit(!username[i]) || !isAlphabet(username[i])) {
+		if (!isDigit(username.getSymbolAt(i)) || !isAlphabet(username.getSymbolAt(i))) {
 			return false;
 		}
 	}
 	return true;
 }
-bool validEmail(const char* email) {
-	if (!isAlphabet(email[0])) //email can't start with digit
+bool validEmail(MyString email) {
+	if (!isAlphabet(email.getSymbolAt(0))) //email can't start with digit
 		return false;
-	int len = strlen(email);
+	int len = email.size();
 	int aPos = -1; //@
 	int dotPos = -1; //.
 	for (int i = 0; i < len; ++i) {
-		if (email[i] == '@')
+		if (email.getSymbolAt(i) == '@')
 			aPos = i;
-		if (email[i] == '.')
+		if (email.getSymbolAt(i) == '.')
 			dotPos = i;
 	}
 	if (aPos == -1 || dotPos == -1) //email should include dot and @
@@ -58,37 +58,37 @@ bool validEmail(const char* email) {
 		return false;
 	return true;
 }
-bool passwordValidation(const char* password) {
-	int len = strlen(password);
+bool passwordValidation(const MyString password) {
+	int len = password.size();
 	if (len < 6) {
 		return false;
 	}
 	return true;
 }
 
-bool isValidDestination(const char* des) {
-	for (int i = 0; i < strlen(des); i++)
+bool isValidDestination(const MyString des) {
+	for (int i = 0; i < des.size(); i++)
 	{
-		if (!isAlphabet(des[i]) && des[i] != ',')
+		if (!isAlphabet(des.getSymbolAt(i)) && des.getSymbolAt(i) != ',')
 			return false;
 	}
 	return true;
 }
 
-bool isValidPictureName(const char* pictureName) {
-	int nameLen = strlen(pictureName);
+bool isValidPictureName(const MyString pictureName) {
+	int nameLen = pictureName.size();
 	char buffer[maxFormatLen] = { '\0' };
 	int index = 0;
 	for (int i = 0; i < nameLen; i++)
 	{
-		if (!isAlphabet(pictureName[i]) && !isDot(pictureName[i]) && !isDownDash(pictureName[i]))
+		if (!isAlphabet(pictureName.getSymbolAt(i)) && !isDot(pictureName.getSymbolAt(i)) && !isDownDash(pictureName.getSymbolAt(i)))
 		{
 			cout << "Invalid symbol!\n";
 			return false;
 		}
-		if (isDot(pictureName[i]))
+		if (isDot(pictureName.getSymbolAt(i)))
 		{
-			if (isDownDash(pictureName[i - 1]) == 1 || isDownDash(pictureName[i + 1] == 1))
+			if (isDownDash(pictureName.getSymbolAt(i-1)) == 1 || isDownDash(pictureName.getSymbolAt(i+1) == 1))
 				return false;
 			int formatLen = nameLen - i;
 			if (formatLen > maxFormatLen)
@@ -98,7 +98,7 @@ bool isValidPictureName(const char* pictureName) {
 			}
 			for (int j = i + 1; j < nameLen; j++)
 			{
-				buffer[index++] = pictureName[j];
+				buffer[index++] = pictureName.getSymbolAt(j);
 			}
 			buffer[index] = '\0';
 			break;
@@ -134,8 +134,8 @@ bool dateValidation(int year, int month, int day) {
 		return (day <= 30);
 	return true;
 }
-bool isValidDate(const char* date) {
-	int dateLen = strlen(date);
+bool isValidDate(const MyString date) {
+	int dateLen = date.size();
 	int arr[constDateLen] = { 0 };
 	int index = 0;
 	int year = 0;
@@ -146,12 +146,12 @@ bool isValidDate(const char* date) {
 		return false;
 	for (int i = 0; i < maxDateLen; i++)
 	{
-		if ((!isDigit(date[i])) && (!isDash(date[i])))
+		if ((!isDigit(date.getSymbolAt(i))) && (!isDash(date.getSymbolAt(i))))
 		{
 			return false;
 		}
-		if (!isDash(date[i])) {
-			arr[index++] = date[i] - '0';
+		if (!isDash(date.getSymbolAt(i))) {
+			arr[index++] = date.getSymbolAt(i) - '0';
 		}
 	}
 	//year
