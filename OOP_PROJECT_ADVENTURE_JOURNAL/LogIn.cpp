@@ -9,7 +9,7 @@ User* usersLogIn;
 
 
 void logIn() {
-	char line[32]; //delete[]
+	char line[32]; //get one line from text file
 	cout << "\nEnter username: ";
 	cin >> usernameLogIn;
 	
@@ -19,7 +19,7 @@ void logIn() {
 			if (usernameLogIn.cmpStrWithCharArray(usersLogIn->getUsername().getMyStr()))
 			{
 				cout << "\nEnter password.";
-				int posInFile = iFileLogIn.tellg();
+				int posInFile = iFileLogIn.tellg();//tells where is the pointer in file
 				int nextPos = posInFile + 1;
 				iFileLogIn.seekg(nextPos, posInFile);
 				iFileLogIn.getline(line, sizeof(line));

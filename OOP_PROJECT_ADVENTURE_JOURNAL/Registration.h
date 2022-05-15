@@ -6,9 +6,9 @@
 #include "DataBaseValidation.h"
 using namespace std;
 
-int getRecordTimes();
-void closeFile();
-void checkUsername(MyString usern);
-void regUsername();
-void regPassword();
-void regEmail();
+int getRecordTimes(); //counts how many times it is saved by a user in the file
+void closeFile();//function for file closing
+void checkUsername(MyString usern);//check if the username is already exists
+void regUsername();//username validation + records in file
+void regPassword();//password validation + records in file
+void regEmail();//email validation + records in file
